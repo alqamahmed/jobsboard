@@ -1,0 +1,15 @@
+
+<% @job = Job.find(@application.job_id) %>
+
+<div class="h-100 p-5 bg-light rounded-3">
+	<h1 class="display-6"><%= @job.title %></h1>
+<p><%= @job.description %></p>
+
+<% @user = User.find(@application.user_id) %>
+<hr class="my-4">
+
+<h1 class="display-6">Applicant</h1>
+<p><%= @user.email %></p>
+</div>
+<br/>
+<%= link_to 'Back', applications_path, class:"btn btn-dark" %>

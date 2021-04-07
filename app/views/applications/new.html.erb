@@ -1,0 +1,10 @@
+<% @job = Job.find(params[:job_id]) %>
+
+<h1><%= @job.title %></h1>
+<p><%= @job.description %></p>
+
+<% if can? :create, @application %><%= render 'form', application: @application %><% end %>
+
+<br/>
+
+<%= link_to 'Back', root_path, class:"btn btn-dark" %>

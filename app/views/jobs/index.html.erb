@@ -1,0 +1,24 @@
+<h1>Jobs</h1>
+<p>Please read the jobs' descriptions carefully and apply now!</p>
+
+    <% @jobs.each do |job| %>
+
+      <div class="h-100 p-5 bg-light rounded-3">
+        <h1 class="display-6"><%= job.title %></h1>
+
+        <hr class="my-4">
+        <h5>Description:</h5>
+        <p>
+          <h6><%= job.description %></h6>
+          <%= job.job_id %>
+        </p>
+
+        
+        <% if can? :create, Application %><%= link_to 'Apply', {:controller => "applications", :action => "new", :job_id => job.id }, class:"btn btn-secondary", style:"float:right" %><% end %>
+
+        <% if can? :manage, job %><%= link_to 'Manage', job_path(job), class:"btn btn-secondary", style:"float:right" %><% end %>
+
+      </div>
+      <br/>
+<% end %>
+    
