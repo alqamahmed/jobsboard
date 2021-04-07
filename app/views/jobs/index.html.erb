@@ -1,5 +1,10 @@
 <h1>Jobs</h1>
-<p>Please read the jobs' descriptions carefully and apply now!</p>
+<% if !Job.first.nil? %>
+  <p>Please read the jobs' descriptions carefully and apply now!</p>
+<% else %>
+  <p>There are currently no jobs listed, please check again later</p>
+<% end %>
+
 
     <% @jobs.each do |job| %>
 

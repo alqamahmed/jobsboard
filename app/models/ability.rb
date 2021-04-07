@@ -5,8 +5,9 @@ class Ability
 
   def initialize(user)
     # can :read, :all
-    can :read, Application, :user_id => user.id
+
     user ||= User.new # guest user (not logged in)
+        can :read, Application, :user_id => user.id
       if user.admin?
         can :manage, Job
         can :read, Application
